@@ -21,10 +21,10 @@ PRODUCT_COPY_FILES += \
 
 ifneq ($(BOARD_USES_RECOVERY_AS_BOOT), true)
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/products/mbox/ueventd.odroidn2.rc:root/ueventd.odroidn2.rc
+    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:root/ueventd.odroidc4.rc
 else
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/products/mbox/ueventd.odroidn2.rc:recovery/root/ueventd.odroidn2.rc
+    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:recovery/root/ueventd.odroidc4.rc
 endif
 
 PRODUCT_COPY_FILES += \
@@ -64,7 +64,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/recovery/init.recovery.odroidn2.rc:root/init.recovery.odroidn2.rc \
+    device/hardkernel/$(PRODUCT_DIR)/recovery/init.recovery.odroidc4.rc:root/init.recovery.odroidc4.rc \
     device/hardkernel/$(PRODUCT_DIR)/recovery/recovery.kl:recovery/root/etc/recovery.kl \
     device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:recovery/root/etc/mesondisplay.cfg \
     device/hardkernel/$(PRODUCT_DIR)/recovery/remotecfg:recovery/root/sbin/remotecfg \
@@ -119,9 +119,9 @@ DEVICE_FRAMEWORK_MANIFEST_FILE += \
 PRODUCT_PACKAGES += android.hardware.health@2.0-service
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/odroidn2/files/odroid-usbgps.xml:root/odroid-usbgps.xml \
-    device/hardkernel/odroidn2/files/boot.ini.template:vendor/etc/boot.ini.template \
-    device/hardkernel/odroidn2/files/hardkernel-720.bmp.gz:vendor/etc/hardkernel-720.bmp.gz \
-    device/hardkernel/odroidn2/files/makebootini:vendor/bin/makebootini \
-    device/hardkernel/odroidn2/files/default.prop.template:vendor/etc/default.prop.template \
-    device/hardkernel/odroidn2/files/makedefaultprop:vendor/bin/makedefaultprop
+    device/hardkernel/odroidc4/files/odroid-usbgps.xml:root/odroid-usbgps.xml \
+    device/hardkernel/odroidc4/files/boot.ini.template:vendor/etc/boot.ini.template \
+    device/hardkernel/odroidc4/files/hardkernel-720.bmp.gz:vendor/etc/hardkernel-720.bmp.gz \
+    device/hardkernel/odroidc4/files/makebootini:vendor/bin/makebootini \
+    device/hardkernel/odroidc4/files/default.prop.template:vendor/etc/default.prop.template \
+    device/hardkernel/odroidc4/files/makedefaultprop:vendor/bin/makedefaultprop

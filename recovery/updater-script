@@ -1,4 +1,4 @@
-#assert(getprop("ro.build.product" == "odroidn2
+#assert(getprop("ro.build.product" == "odroidc4
 
 show_progress(1.0000, 0);
 

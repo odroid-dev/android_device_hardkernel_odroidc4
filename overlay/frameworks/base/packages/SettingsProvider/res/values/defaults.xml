@@ -20,7 +20,6 @@
     <!-- Do not enable auto rotation switching -->
     <bool name="def_accelerometer_rotation">false</bool>
     <integer name="def_screen_off_timeout">3600000</integer>
-    <!--<string name="config_defaultIME">com.odroidn2.inputmethod.remote/.RemoteIME</string>-->
     <bool name="def_lockscreen_disabled">true</bool>
     <!-- Default for Settings.Secure.USER_SETUP_COMPLETE -->
     <bool name="def_user_setup_complete">true</bool>

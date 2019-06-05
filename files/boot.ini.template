@@ -1,4 +1,4 @@
-ODROIDN2-UBOOT-CONFIG
+ODROIDC4-UBOOT-CONFIG
 
 setenv label "android_9.0.0_32bit"
 
@@ -136,7 +136,7 @@ setenv ramoopsopt "ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.consol
 setenv touchopt "touch_invert_x=${touch_invert_x} touch_invert_y=${touch_invert_y}"
 setenv displayopt "colorattribute=${colorattribute}"
 setenv testmtopt "test_mt_vid=${test_mt_vid} test_mt_pid=${test_mt_pid} backlight_pwm=${backlight_pwm}"
-setenv androidopt "androidboot.selinux=permissive androidboot.firstboot=${firstboot} jtag=disable androidboot.hardware=odroidn2 otg_device=1 buildvariant=eng"
+setenv androidopt "androidboot.selinux=permissive androidboot.firstboot=${firstboot} jtag=disable androidboot.hardware=odroidc4 otg_device=1 buildvariant=eng"
 setenv miscopt "disable_vu7=${disable_vu7} ${touchopt} zoom_rate=${zoom_rate} ${testmtopt} suspend_hdmiphy=${suspend_hdmiphy}"
 
 # dtbs & boot addr

@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := odroidn2
+PRODUCT_DIR := odroidc4
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -69,15 +69,15 @@ endif
 endif
 endif
 endif
-# odroidn2:
+# odroidc4:
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         persist.sys.hdmi.keep_awake=false
 
-PRODUCT_NAME := odroidn2
-PRODUCT_DEVICE := odroidn2
+PRODUCT_NAME := odroidc4
+PRODUCT_DEVICE := odroidc4
 PRODUCT_BRAND := ODROID
-PRODUCT_MODEL := odroidn2
+PRODUCT_MODEL := odroidc4
 PRODUCT_MANUFACTURER := HardKernel Co., Ltd.
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
@@ -195,7 +195,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidn2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidn2
+    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidc4
 
 #########################################################################
 #
