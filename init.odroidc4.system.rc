@@ -53,7 +53,7 @@ on init
 on fs
     mkdir /mnt/vendor/factory 0755 root root
     mkdir /mnt/vendor/swap_zram0 0700 root root
-    mount_all /vendor/etc/fstab.odroidc4
+    mount_all /vendor/etc/fstab.odroid
     setprop ro.crypto.fuse_sdcard true
     restorecon_recursive /mnt/vendor/param
 
@@ -448,4 +448,4 @@ service bugreport /system/bin/dumpstate -d -p -B -P -z \
     oneshot
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
-    swapon_all /vendor/etc/fstab.odroidc4
+    swapon_all /vendor/etc/fstab.odroid

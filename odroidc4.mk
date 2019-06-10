@@ -208,7 +208,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidc4
+    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroid
 
 #########################################################################
 #
