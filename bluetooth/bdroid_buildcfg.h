@@ -22,7 +22,7 @@
 
 /* Odroid custom option */
 #define SUPERVISION_TIMEOUT FALSE
-#define BLE_ADV_FILTER FALSE
+//#define BLE_ADV_FILTER FALSE
 
 /*fix bt crash about init */
 #define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
