@@ -21,10 +21,10 @@ PRODUCT_COPY_FILES += \
 
 ifneq ($(BOARD_USES_RECOVERY_AS_BOOT), true)
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:root/ueventd.odroidc4.rc
+    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:root/ueventd.odroid.rc
 else
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:recovery/root/ueventd.odroidc4.rc
+    device/hardkernel/common/products/mbox/ueventd.odroidc4.rc:recovery/root/ueventd.odroid.rc
 endif
 
 PRODUCT_PACKAGES += \
