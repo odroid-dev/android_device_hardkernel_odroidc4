@@ -172,6 +172,7 @@ DEVICE_MANIFEST_FILE := device/hardkernel/common/products/mbox/manifest/manifest
 endif
 #DEVICE_MATRIX_FILE   := device/hardkernel/common/compatibility_matrix.xml
 
+#BOARD_HAS_ADTV := true
 BOARD_VNDK_VERSION := current
 
 BOARD_HAVE_ODROID_GPS := true

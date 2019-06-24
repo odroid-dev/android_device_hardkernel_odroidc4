@@ -38,9 +38,12 @@ $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)
 $(call inherit-product-if-exists, vendor/google/products/gms.mk)
-
+#########################################################################
+#
+#                                               Media extension
+#
+#########################################################################
 TARGET_WITH_MEDIA_EXT_LEVEL := 4
-
 #########################################################################
 #
 #                     media ext
@@ -72,6 +75,7 @@ endif
 # odroidc4:
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
+        ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
 PRODUCT_NAME := odroidc4
@@ -178,6 +182,15 @@ TARGET_BUILD_NETFLIX:= true
 endif
 ########################################################################
 
+########################################################################
+#
+#                           Live TV
+#
+########################################################################
+#TARGET_BUILD_LIVETV := true
+PRODUCT_PACKAGES += \
+    droidlogic.tv.software.core.xml
+
 #########################################################################
 #
 #                                                Dm-Verity
@@ -195,7 +208,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidc4
+    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroid
 
 #########################################################################
 #
@@ -306,7 +319,7 @@ $(call inherit-product, build/target/product/languages_full.mk)
 #
 #################################################################################
 #ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-#BUILD_WITH_PPPOE := true
+#BUILD_WITH_PPPOE := false
 #endif
 
 ifeq ($(BUILD_WITH_PPPOE),true)
@@ -322,13 +335,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.pppoe=true
 endif
-
-#################################################################################
-#
-#                                                DEFAULT LOWMEMORYKILLER CONFIG
-#
-#################################################################################
-BUILD_WITH_LOWMEM_COMMON_CONFIG := true
 
 BOARD_USES_USB_PM := true
 
@@ -365,6 +371,7 @@ PRODUCT_PACKAGES += \
     update_verifier \
     delta_generator \
     brillo_update_payload \
+    android.hardware.boot@1.0 \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 endif
@@ -383,7 +390,7 @@ PRODUCT_PACKAGES += \
     fw_printenv \
     fw_setenv
 
-include device/hardkernel/common/gpu/gondul-user-arm64.mk
+include device/hardkernel/common/gpu/dvalin-user-arm64.mk
 
 PRODUCT_PACKAGES += \
     static_busybox
