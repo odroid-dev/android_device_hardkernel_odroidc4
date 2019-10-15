@@ -27,18 +27,10 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/products/mbox/ueventd.odroid.rc:recovery/root/ueventd.odroid.rc
 endif
 
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl:32 \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.1-service.widevine \
-    android.hardware.drm@1.1-service.clearkey \
-    move_widevine_data.sh
-
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/mesondisplay.cfg \
@@ -49,16 +41,18 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/PQ/pq.db:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq.db \
     device/hardkernel/$(PRODUCT_DIR)/files/PQ/pq_default.ini:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq_default.ini
 
+ifeq ($(BOARD_COMPILE_ATV),true)
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
+else
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(PRODUCT_DIR)/aosp/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
+endif
+
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
-ifneq ($(TARGET_BUILD_LIVETV), true)
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
-else
-PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
-endif
 else
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
@@ -111,10 +105,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
 
 #To remove healthd from the build
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.override

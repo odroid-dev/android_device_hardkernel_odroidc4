@@ -4,11 +4,16 @@ on early-init
 
     mount configfs configfs /sys/kernel/config
     #mount usbfs none /proc/bus/usb
+    insmod /vendor/lib/modules/mali.ko
 
 on init
 
+on late-init
+#optimize android app runtime performance and user experience
+    write /dev/cpuset/foreground/cpus 2-5
+    write /dev/cpuset/top-app/cpus 2-5
+
 on post-fs-data
-    insmod /vendor/lib/modules/mali.ko
     insmod /vendor/lib/modules/cfg80211.ko
     insmod /vendor/lib/dovi.ko
     insmod /vendor/lib/sl_hdr.ko

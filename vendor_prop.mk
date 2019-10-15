@@ -80,10 +80,6 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 PRODUCT_PROPERTY_OVERRIDES +=  \
     drm.service.enabled=1
 
-#set memory upper limit for extractor process
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.maxmem=629145600
-
 #map volume
 PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.audio.mapvalue=0,0,0,0
@@ -93,28 +89,15 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     service.adb.tcp.port=5555
 
 #enable/disable afbc
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.afbcd.enable=1
+PRODUCT_PROPERTY_OVERRIDES +=  \
+    osd.afbcd.enable=1
 
 # default disable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sdr2hdr.enable=false
 
-ifeq ($(TARGET_BUILD_LIVETV), true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.is.tv=1
-
-#disable timeshift
-PRODUCT_PROPERTY_OVERRIDES += \
-    tv.dtv.tf.disable=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.is.stb=true
-
-else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.is.tv=0
-endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.hdmi.device_type=4

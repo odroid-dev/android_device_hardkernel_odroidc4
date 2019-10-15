@@ -21,7 +21,9 @@ PRODUCT_DIR := odroidc4
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
-#TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE := true
+#
+ANDROID_BUILD_TYPE := 64
+TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE := true
 
 # Inherit from those products. Most specific first.
 ifeq ($(ANDROID_BUILD_TYPE), 64)
@@ -75,7 +77,6 @@ endif
 # odroidc4:
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
-        ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
 PRODUCT_NAME := odroidc4
@@ -91,7 +92,7 @@ PRODUCT_TYPE := mbox
 BOARD_AML_TDK_KEY_PATH := device/hardkernel/common/tdk_keys/
 WITH_LIBPLAYER_MODULE := false
 
-OTA_UP_PART_NUM_CHANGED := true
+OTA_UP_PART_NUM_CHANGED := false
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 
@@ -159,6 +160,16 @@ endif
 
 ########################################################################
 #
+#                           Kernel Arch
+#
+#
+#########################################################################
+#ifndef KERNEL_A32_SUPPORT
+#KERNEL_A32_SUPPORT := true
+#endif
+
+########################################################################
+#
 #                           ATV
 #
 ########################################################################
@@ -181,15 +192,6 @@ TARGET_BUILD_CTS:= true
 TARGET_BUILD_NETFLIX:= true
 endif
 ########################################################################
-
-########################################################################
-#
-#                           Live TV
-#
-########################################################################
-#TARGET_BUILD_LIVETV := true
-PRODUCT_PACKAGES += \
-    droidlogic.tv.software.core.xml
 
 #########################################################################
 #
@@ -319,7 +321,7 @@ $(call inherit-product, build/target/product/languages_full.mk)
 #
 #################################################################################
 #ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-#BUILD_WITH_PPPOE := false
+#BUILD_WITH_PPPOE := true
 #endif
 
 ifeq ($(BUILD_WITH_PPPOE),true)
@@ -335,6 +337,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.pppoe=true
 endif
+
+#################################################################################
+#
+#                                                DEFAULT LOWMEMORYKILLER CONFIG
+#
+#################################################################################
+BUILD_WITH_LOWMEM_COMMON_CONFIG := true
 
 BOARD_USES_USB_PM := true
 
@@ -371,7 +380,6 @@ PRODUCT_PACKAGES += \
     update_verifier \
     delta_generator \
     brillo_update_payload \
-    android.hardware.boot@1.0 \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 endif

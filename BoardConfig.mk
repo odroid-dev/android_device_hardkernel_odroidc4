@@ -56,7 +56,8 @@ TARGET_BOOTLOADER_IS_2ND := false
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 MAX_VIRTUAL_DISPLAY_DIMENSION := 1920
-TARGET_APP_LAYER_USE_CONTINOUSE_BUFFER := false
+TARGET_APP_LAYER_USE_CONTINUOUS_BUFFER := false
+TARGET_USE_DEFAULT_HDR_PROPERTY := true
 
 #MESONHWC CONFIG
 USE_HWC2 := true
@@ -157,6 +158,7 @@ endif
 
 include device/hardkernel/common/sepolicy.mk
 #MALLOC_IMPL := dlmalloc
+MALLOC_SVELTE := true
 
 WITH_DEXPREOPT := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -172,7 +174,6 @@ DEVICE_MANIFEST_FILE := device/hardkernel/common/products/mbox/manifest/manifest
 endif
 #DEVICE_MATRIX_FILE   := device/hardkernel/common/compatibility_matrix.xml
 
-#BOARD_HAS_ADTV := true
 BOARD_VNDK_VERSION := current
 
 BOARD_HAVE_ODROID_GPS := true
