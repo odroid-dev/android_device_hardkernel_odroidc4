@@ -27,10 +27,19 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/products/mbox/ueventd.odroid.rc:recovery/root/ueventd.odroid.rc
 endif
 
+# DRM HAL
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl:32 \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.1-service.widevine \
+    android.hardware.drm@1.1-service.clearkey \
+    move_widevine_data.sh
+
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/mesondisplay.cfg \

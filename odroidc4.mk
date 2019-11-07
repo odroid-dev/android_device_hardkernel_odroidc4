@@ -23,7 +23,7 @@ PRODUCT_DIR := odroidc4
 # and 32bit system, default closed
 #
 #ANDROID_BUILD_TYPE := 64
-TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE := true
+#TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE := true
 
 # Inherit from those products. Most specific first.
 ifeq ($(ANDROID_BUILD_TYPE), 64)
@@ -89,15 +89,14 @@ TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
 PRODUCT_TYPE := mbox
 
-BOARD_AML_TDK_KEY_PATH := device/hardkernel/common/tdk_keys/
+BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
+BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
+
 WITH_LIBPLAYER_MODULE := false
 
 OTA_UP_PART_NUM_CHANGED := false
 
-BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
-
-BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
-
+BOARD_AML_TDK_KEY_PATH := device/amlogic/common/tdk_keys/
 #AB_OTA_UPDATER :=true
 BUILD_WITH_AVB := false
 
@@ -156,6 +155,7 @@ endif
 
 BOARD_CACHEIMAGE_PARTITION_SIZE := 1073741824
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 endif
 
 ########################################################################
@@ -190,6 +190,7 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
 BOARD_PLAYREADY_LEVEL := 1
 TARGET_BUILD_CTS:= true
 TARGET_BUILD_NETFLIX:= true
+TARGET_BUILD_NETFLIX_MGKID := true
 endif
 ########################################################################
 
@@ -326,7 +327,7 @@ $(call inherit-product, build/target/product/languages_full.mk)
 #
 #################################################################################
 #ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-#BUILD_WITH_PPPOE := true
+#BUILD_WITH_PPPOE := false
 #endif
 
 ifeq ($(BUILD_WITH_PPPOE),true)
@@ -385,6 +386,7 @@ PRODUCT_PACKAGES += \
     update_verifier \
     delta_generator \
     brillo_update_payload \
+    android.hardware.boot@1.0 \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 endif
