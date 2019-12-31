@@ -62,6 +62,12 @@ ui_print("   'product' partition is extracting...");
 mount("ext4", "EMMC", "/dev/block/product", "/product");
 package_extract_dir("product", "/product");
 
+set_progress(0.8500);
+
+ui_print("   local_bt_address.txt is copied to FAT partition");
+mount("ext4", "EMMC", "/dev/block/vendor", "/vendor");
+run_program("/sbin/cp", "/vendor/etc/local_bt_address.txt", "/sdcard/local_bt_address.txt");
+
 set_progress(0.9000);
 
 ui_print("Android update is completed.\nHave fun with ODROID-C4!\n\n");
