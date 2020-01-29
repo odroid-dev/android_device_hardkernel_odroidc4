@@ -42,6 +42,7 @@ run_program("/sbin/cp", "/vendor/etc/boot.ini.template", "/sdcard/boot.ini");
 run_program("/sbin/cp", "/vendor/etc/default.prop.template", "/sdcard/default.prop");
 run_program("/sbin/cp", "/vendor/etc/hardkernel-720.bmp.gz", "/sdcard/boot-logo.bmp.gz");
 run_program("/sbin/cp", "/vendor/etc/local_bt_address.txt", "/sdcard/local_bt_address.txt");
+run_program("/sbin/cp", "/vendor/etc/env.ini.template", "/sdcard/env.ini");
 unmount("/vendor");
 unmount("/sdcard");
 
