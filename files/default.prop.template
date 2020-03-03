@@ -9,3 +9,4 @@ media.audio_hal.device=0
 ro.chip=s905x3
 ro.url.official=https://dn.odroid.com/S905X3/ODROID-C4/Android/
 ro.url.mirror=https://www.odroid.in/mirror/dn.odroid.com/S905X3/ODROID-C4/Android/
+kiosk_mode=false
