@@ -82,7 +82,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_NAME := odroidc4
 PRODUCT_DEVICE := odroidc4
 PRODUCT_BRAND := ODROID
-PRODUCT_MODEL := odroidc4
+PRODUCT_MODEL := ODROID-C4
 PRODUCT_MANUFACTURER := HardKernel Co., Ltd.
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
@@ -211,7 +211,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroid
+    device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidc4
 
 #########################################################################
 #
