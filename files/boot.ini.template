@@ -45,9 +45,6 @@ setenv bootlabel "Android Pie (64Bit)"
 #    "1680x1050p60hz"   | 1680x1050 Progressive 60Hz
 #    "1920x1200p60hz"   | 1920x1200 Progressive 60Hz
 #    "2560x1080p60hz"   | 2560x1080 Progressive 60Hz
-#    "2560x1440p60hz"   | 2560x1440 Progressive 60Hz
-#    "2560x1600p60hz"   | 2560x1600 Progressive 60Hz
-#    "3440x1440p60hz"   | 3440x1440 Progressive 60Hz
 setenv hdmimode "1080p60hz"
 
 ### voutmode : hdmi or dvi
@@ -121,14 +118,17 @@ setenv backlight_pwm "yes"
 # Wake on Lan
 setenv enable_wol "0"
 
+# HPD enable/disable option
+setenv disablehpd "false"
+
 # Init args
 setenv rootopt "rootfstype=ramfs init=/init"
 setenv consoleopt "console=ttyS0,115200n8 no_console_suspend earlyprintk=aml-uart,0xff803000 quiet"
 setenv ramoopsopt "ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000"
 setenv touchopt "touch_invert_x=${touch_invert_x} touch_invert_y=${touch_invert_y}"
-setenv displayopt "colorattribute=${colorattribute}"
+setenv displayopt "colorattribute=${colorattribute} disablehpd=${disablehpd}"
 setenv testmtopt "test_mt_vid=${test_mt_vid} test_mt_pid=${test_mt_pid} backlight_pwm=${backlight_pwm}"
-setenv androidopt "androidboot.selinux=permissive androidboot.firstboot=${firstboot} jtag=disable androidboot.hardware=odroid otg_device=1 buildvariant=eng"
+setenv androidopt "androidboot.selinux=permissive androidboot.firstboot=${firstboot} jtag=disable androidboot.hardware=odroidc4 otg_device=1 buildvariant=eng"
 setenv miscopt "disable_vu7=${disable_vu7} ${touchopt} zoom_rate=${zoom_rate} ${testmtopt} suspend_hdmiphy=${suspend_hdmiphy} usb-xhci.tablesize=${sg_tablesize}"
 
 # dtbs & boot addr
