@@ -14,8 +14,7 @@ setenv colorattribute "444,8bit"
 setenv osd_reverse "0"
 setenv video_reverse "0"
 setenv suspend_hdmiphy "1"
-setenv max_freq_a53 "2016"
-setenv governor_a53 "performance"
+setenv max_freq_little "2016"
 setenv disablehpd "false"
 setenv disable_vu7 "false"
 setenv touch_invert_x "false"
@@ -67,7 +66,7 @@ if test "${display_autodetect}" = "true"; then hdmitx edid; fi
 # TODO -> if test "${display_autodetect}" = "true"; then usb pwren; hdmitx edid; fi
 if test "${hdmimode}" = "custombuilt"; then setenv cmode "modeline=${modeline} customwidth=${customwidth} customheight=${customheight}"; fi
 
-setenv initargs "${rootopt} ${consoleopt} ${ramoopsopt} max_freq_a53=${max_freq_a53} ${cmode} ${miscopt}"
+setenv initargs "${rootopt} ${consoleopt} ${ramoopsopt} max_freq_a53=${max_freq_little} ${cmode} ${miscopt}"
 
 setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol}"
 
