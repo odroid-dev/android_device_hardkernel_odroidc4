@@ -14,10 +14,12 @@
 # limitations under the License.
 #
 
+#initrc files
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/init.$(TARGET_PRODUCT).system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_PRODUCT).rc \
-    device/hardkernel/$(PRODUCT_DIR)/init.$(TARGET_PRODUCT).usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.usb.rc \
-    device/hardkernel/$(PRODUCT_DIR)/init.$(TARGET_PRODUCT).board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.board.rc
+    device/hardkernel/odroidc4/init.rc/init.odroidc4.board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.board.rc \
+    device/hardkernel/odroidc4/init.rc/init.odroidc4.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.media.rc \
+    device/hardkernel/odroidc4/init.rc/init.odroidc4.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroidc4.rc \
+    device/hardkernel/odroidc4/init.rc/init.odroidc4.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.usb.rc
 
 ifneq ($(BOARD_USES_RECOVERY_AS_BOOT), true)
 PRODUCT_COPY_FILES += \
