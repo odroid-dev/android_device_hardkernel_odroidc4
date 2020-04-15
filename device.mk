@@ -136,3 +136,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc4/files/makedefaultprop:vendor/bin/makedefaultprop \
     device/hardkernel/odroidc4/files/env.ini.template:vendor/etc/env.ini.template \
     device/hardkernel/odroidc4/recovery/update_ini.sh:vendor/bin/update_ini.sh
+
+# Inherit from my custom product configuration
+$(call inherit-product, vendor/secuflag/common.mk)
