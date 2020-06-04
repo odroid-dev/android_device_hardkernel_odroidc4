@@ -38,56 +38,56 @@ PRODUCT_PACKAGES += \
     move_widevine_data.sh
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/mesondisplay.cfg \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3 \
-    device/hardkernel/$(PRODUCT_DIR)/files/PQ/pq.db:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq.db \
-    device/hardkernel/$(PRODUCT_DIR)/files/PQ/pq_default.ini:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq_default.ini
+    device/hardkernel/odroidc4/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    device/hardkernel/odroidc4/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    device/hardkernel/odroidc4/files/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    device/hardkernel/odroidc4/files/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/hardkernel/odroidc4/files/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    device/hardkernel/odroidc4/files/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    device/hardkernel/odroidc4/files/mesondisplay.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/mesondisplay.cfg \
+    device/hardkernel/odroidc4/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
+    device/hardkernel/odroidc4/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
+    device/hardkernel/odroidc4/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
+    device/hardkernel/odroidc4/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3 \
+    device/hardkernel/odroidc4/files/PQ/pq.db:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq.db \
+    device/hardkernel/odroidc4/files/PQ/pq_default.ini:$(TARGET_COPY_OUT_VENDOR)/etc/tvconfig/pq/pq_default.ini
 
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 ifneq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
+    device/hardkernel/odroidc4/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/hardkernel/odroidc4/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    device/hardkernel/odroidc4/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
 else
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
+    device/hardkernel/odroidc4/files/audio_policy_configuration_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/hardkernel/odroidc4/files/audio_policy_volumes_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    device/hardkernel/odroidc4/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
 endif
 else
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
+    device/hardkernel/odroidc4/files/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
 endif
 
 ifeq ($(TARGET_WITH_MEDIA_EXT), true)
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/media_codecs_ext.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_ext.xml
+    device/hardkernel/odroidc4/files/media_codecs_ext.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_ext.xml
 endif
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/recovery/init.recovery.odroidc4.rc:root/init.recovery.odroidc4.rc \
-    device/hardkernel/$(PRODUCT_DIR)/recovery/recovery.kl:recovery/root/etc/recovery.kl \
-    device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:recovery/root/etc/mesondisplay.cfg \
-    device/hardkernel/$(PRODUCT_DIR)/recovery/remotecfg:recovery/root/sbin/remotecfg \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.cfg:recovery/root/etc/remote.cfg \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab1:recovery/root/etc/remote.tab1 \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab2:recovery/root/etc/remote.tab2 \
-    device/hardkernel/$(PRODUCT_DIR)/files/remote.tab3:recovery/root/etc/remote.tab3 \
-    device/hardkernel/$(PRODUCT_DIR)/recovery/sh:recovery/root/sbin/sh
+    device/hardkernel/odroidc4/recovery/init.recovery.odroidc4.rc:root/init.recovery.odroidc4.rc \
+    device/hardkernel/odroidc4/recovery/recovery.kl:recovery/root/etc/recovery.kl \
+    device/hardkernel/odroidc4/files/mesondisplay.cfg:recovery/root/etc/mesondisplay.cfg \
+    device/hardkernel/odroidc4/recovery/remotecfg:recovery/root/sbin/remotecfg \
+    device/hardkernel/odroidc4/files/remote.cfg:recovery/root/etc/remote.cfg \
+    device/hardkernel/odroidc4/files/remote.tab1:recovery/root/etc/remote.tab1 \
+    device/hardkernel/odroidc4/files/remote.tab2:recovery/root/etc/remote.tab2 \
+    device/hardkernel/odroidc4/files/remote.tab3:recovery/root/etc/remote.tab3 \
+    device/hardkernel/odroidc4/recovery/sh:recovery/root/sbin/sh
 
 # Copy Static Busybox
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/busybox:recovery/root/sbin/busybox
+    device/hardkernel/odroidc4/files/busybox:recovery/root/sbin/busybox
 
 # remote IME config file
 PRODUCT_COPY_FILES += \
@@ -96,7 +96,7 @@ PRODUCT_COPY_FILES += \
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/files/Generic.kl:/$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
+    device/hardkernel/odroidc4/files/Generic.kl:/$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
 else
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/Generic.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
@@ -114,18 +114,13 @@ endif
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 DEVICE_PACKAGE_OVERLAYS := \
-    device/hardkernel/$(PRODUCT_DIR)/overlay
+    device/hardkernel/odroidc4/overlay
 endif
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-
-
-
-
 
 #To remove healthd from the build
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.override
