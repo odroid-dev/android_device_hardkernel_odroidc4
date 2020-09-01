@@ -73,8 +73,11 @@ include device/hardkernel/common/wifi.mk
 PRODUCT_DEFAULT_WIFI_CHANNELS := 11
 
 # Bluetooth
+TARGET_SUPPORT_COMBO := false
 BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_BCM := true
+ifeq ($(TARGET_SUPPORT_COMBO), true)
+BOARD_HAVE_BLUETOOTH_BCM := true
+endif
 include device/hardkernel/common/bluetooth.mk
 
 # Audio
