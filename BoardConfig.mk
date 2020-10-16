@@ -43,7 +43,8 @@ TARGET_BOOTLOADER_IS_2ND := false
 # kernel
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 KERNEL_ARCH := arm64
-KERNEL_DEVICETREE := meson64_odroidc4_android
+KERNEL_DEVICETREE_C4 := meson64_odroidc4_android
+KERNEL_DEVICETREE_HC4 := meson64_odroidhc4_android
 KERNEL_DEFCONFIG := odroidc4_android_defconfig
 TARGET_NO_KERNEL := false
 BOARD_KERNEL_BASE := 0x0
