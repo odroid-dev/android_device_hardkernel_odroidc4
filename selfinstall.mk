@@ -21,7 +21,7 @@ DTBS := $(PRODUCT_OUT)/dtbs.img
 SELFINSTALL_BOOT_INI := boot.ini
 SELF_SRC_DIR := device/hardkernel/odroidc4/selfinstall
 MKFS_FAT := device/hardkernel/common/bin/mkfs.fat
-MPT_DUMP := device/hardkernel/$(PRODUCT_DIR)/files/mpt.dump
+MPT_DUMP := device/hardkernel/odroidc4/files/mpt.dump
 
 VENDOR := vendor.img
 
