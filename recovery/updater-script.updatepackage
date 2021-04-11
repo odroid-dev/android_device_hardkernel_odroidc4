@@ -59,12 +59,6 @@ ui_print("   'system' partition is extracting...");
 mount("ext4", "EMMC", "/dev/block/system", "/system");
 package_extract_dir("system", "/system");
 
-if
-  sha1_check(read_file("/system/etc/g.prop")) != ""
-then
-  run_program("/sbin/rm", "-rf", "/system/priv-app/PackageInstaller/");
-endif;
-
 #afrd
 run_program("/sbin/chmod", "755", "/vendor/bin/afrd");
 run_program("/sbin/chown", "root:shell", "/vendor/bin/afrd");
